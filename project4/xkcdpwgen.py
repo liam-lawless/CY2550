@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # CY2550 Project 4
 # password generator
 # Liam Lawless
