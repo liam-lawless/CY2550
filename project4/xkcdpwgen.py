@@ -105,32 +105,33 @@ def pwgen(w, c, n, s):
 
     return result
 
+## get rid of match statement
+
 #java style loop
 if len(sys.argv) > 1:
     i = 1
     while i < len(sys.argv):
         # determing the argument(s) the user has input
-        match sys.argv[i]:
-            case "-h" | "--help":
-                print(helpstr)
-                break
-            case "-w" | "--words":
-                words = int(sys.argv[i+1])
-                i+=1
-            case "-c" | "--caps":
-                caps = int(sys.argv[i+1])
-                i+=1
-            case "-n" | "--numbers":
-                nums = int(sys.argv[i+1])
-                i+=1
-            case "-s" | "--symbols":
-                smbls = int(sys.argv[i+1])
-                i+=1
-            case other:
-                print("no match found: `" + sys.argv[i] +"'")
-                break
+        if sys.argv[i] == "-h" or sys.argv[1] == "--help":
+            print(helpstr)
+            break
+        elif sys.argv[i] == "-w" or sys.argv[1] == "--words":
+            words = int(sys.argv[i+1])
+            i+=1
+        elif sys.argv[i] == "-c" or sys.argv[1] == "--caps":
+            caps = int(sys.argv[i+1])
+            i+=1 
+        elif sys.argv[i] == "-n" or sys.argv[1] == "--numbers":
+            nums = int(sys.argv[i+1])
+            i+=1  
+        elif sys.argv[i] == "-s" or sys.argv[1] == "--symbols":
+            smbls = int(sys.argv[i+1])
+            i+=1
+        else:
+            print("no match found: `" + sys.argv[i] +"'")
+            break 
 
         # increment i by one after every loop        
         i+=1
-
+        
 print(pwgen(words, caps, nums, smbls))
