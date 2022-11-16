@@ -1,0 +1,14 @@
+abi <abi/3.0>,
+include <tunables/global>
+/home/lawlessl/p2 {
+  include <abstractions/apache2-common>
+  include <abstractions/evince>
+  deny /etc/host.conf r,
+  deny /etc/nsswitch.conf r,
+  owner /home/*/.project2/config w,
+  owner /home/*/template r,
+  /var/log/syslog r,
+  /proc/version r,
+  /proc/buddyinfo r,
+  /etc/crontab r,
+}
